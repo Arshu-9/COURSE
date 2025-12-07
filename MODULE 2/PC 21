@@ -1,0 +1,53 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(TextColorChangerApp());
+}
+
+class TextColorChangerApp extends StatefulWidget {
+  @override
+  _TextColorChangerAppState createState() => _TextColorChangerAppState();
+}
+
+class _TextColorChangerAppState extends State<TextColorChangerApp> {
+  bool isBlack = true; // Track color state
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: Text("Change Text Color")),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "Hello World",
+                style: TextStyle(fontSize: 22, color: isBlack ? Colors.black : Colors.red),
+              ),
+              SizedBox(height: 10),
+              Text(
+                "Flutter Color Changer",
+                style: TextStyle(fontSize: 22, color: isBlack ? Colors.black : Colors.red),
+              ),
+              SizedBox(height: 10),
+              Text(
+                "Press the button below",
+                style: TextStyle(fontSize: 22, color: isBlack ? Colors.black : Colors.red),
+              ),
+              SizedBox(height: 30),
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    isBlack = !isBlack; // Toggle color
+                  });
+                },
+                child: Text("Change Text Color"),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
